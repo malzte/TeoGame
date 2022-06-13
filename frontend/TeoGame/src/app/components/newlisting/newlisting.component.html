@@ -1,0 +1,57 @@
+<!-- Back button with custom text and icon -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      New Listing
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="tabs/tab1"
+        [text]="buttonText"
+        [icon]="buttonIcon"
+        color ="dark">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="newListing">
+
+    <!-- <ion-item lines="none">
+      <ion-label position="stacked">user_id:</ion-label>
+      <ion-input placeholder="24" class="form-control" formControlName="user_id" type="text"></ion-input>
+    </ion-item> -->
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Title:</ion-label>
+      <ion-input class="form-control" formControlName="title" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Type:</ion-label>
+      <ion-input type="text" class="form-control" formControlName="type"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Description:</ion-label>
+      <ion-input type="text" class="form-control" formControlName="description"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Phone:</ion-label>
+      <ion-input type="text" class="form-control" formControlName="phone"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Game:</ion-label>
+      <ion-input type="text" class="form-control" formControlName="game_id"></ion-input>
+    </ion-item>
+
+    <div class="signupbutton">
+    <ion-button expand="block" type="submit" class="btn btn-primary" (click)="newlisting()">Post</ion-button>
+    </div>
+    <!-- <button type="submit" class="btn btn-primary" (click)="register()">Submit</button> -->
+  </form>
+</ion-content>

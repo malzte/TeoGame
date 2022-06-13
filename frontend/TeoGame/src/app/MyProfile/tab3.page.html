@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1></h1>
+    <ul  *ngFor="let us of users">
+        <li>First Name: {{users[0].first_name}}</li><br>
+        <li>Last Name: {{users[0].last_name}}</li><br>
+        <li>email: {{users[0].email}}</li><br>
+        <li>Phone: {{users[0].phone}}</li><br>
+        <li>Username: {{users[0].username}}</li><br>
+        <li>Country: {{users[0].country}}</li><br>
+        <li>City: {{users[0].city}}</li><br>
+        <li>Street Address: {{users[0].street_address}}</li><br>
+    </ul>
+
+
+
+</ion-content>

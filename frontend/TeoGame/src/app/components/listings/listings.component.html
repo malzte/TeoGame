@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Listings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+<h1>My Listings</h1>
+
+<ion-card *ngFor="let list of listings" color="warning">
+  <img>
+  <ion-card-header>
+    <ion-card-subtitle>{{ list.type }}</ion-card-subtitle>
+    <ion-card-title>{{ list.title }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    {{ list.description }}
+    <h3>{{ list.phone}}</h3>
+  </ion-card-content>
+</ion-card>
+
+  <!--FLOATING ACTION BUTTON-->
+
+</ion-content>
+
+<div class="fabposition">
+  <ion-content>
+    <ion-fab vertical="bottom" horizontal="end"  slot="fixed">
+      <ion-fab-button [routerLink]="['/newlisting']" color="light">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+</div>
+

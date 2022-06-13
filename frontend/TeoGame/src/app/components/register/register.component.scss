@@ -1,0 +1,21 @@
+.signupbutton {
+   margin-right: 20px;
+   margin-left: 20px;
+   margin-bottom: 20px;
+}
+
+ion-item {
+    margin-bottom: 16px;
+    padding-right: 10px;
+    
+}
+
+ion-item{
+    ion-input{
+        border: solid 2px black;
+        border-radius: 10px;
+        --padding-start: 10px;
+        --background: white;
+        //--color:black;
+    }
+}

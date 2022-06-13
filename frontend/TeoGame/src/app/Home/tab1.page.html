@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar> 
+    <ion-button *ngIf="isLoggedIn" size="medium" href="javascript:void(0)" (click)="logout()">Logout</ion-button>
+    <ion-button *ngIf="!isLoggedIn" [routerLink]="['/login']" size="medium">Login</ion-button>
+    <ion-button *ngIf="!isLoggedIn" [routerLink]="['/register']"size="medium">Sign Up</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+    <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+    <h1>Listings</h1>
+    
+    <ion-card *ngFor="let list of listings | filter:filterTerm">
+      <img src="https://i.ebayimg.com/images/g/028AAOSwdw5iSwBu/s-l500.jpg" />
+      <ion-card-header>
+        
+        <ion-card-subtitle>{{ list.type }}</ion-card-subtitle>
+        <ion-card-title>{{ list.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ list.description }}
+        <h3>{{ list.phone}}</h3>
+      </ion-card-content>
+    </ion-card>
+    
+      <!--FLOATING ACTION BUTTON-->
+    
+</ion-content>
