@@ -10,4 +10,5 @@ export interface IUser {
     phone:string;
     interests:string;
     username:string;
+    image:string;
 }

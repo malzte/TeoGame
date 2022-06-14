@@ -35,7 +35,11 @@ const Listing = config.define('listings', {
     title:{
         type: Sequelize.TEXT,
         allowNull: false
-    }
+    },
+    image: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }  
 }, {timestamps: false});
 
 module.exports = Listing;

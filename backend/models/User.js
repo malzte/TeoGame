@@ -52,6 +52,10 @@ const User = config.define('users', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    image: {
+        type: Sequelize.STRING,
+        allowNull: true
+    }  
 }, {timestamps: false});
 
 

@@ -7,6 +7,7 @@ const Listing = require('./models/Listing');
 const cors =  require('cors');
 const bcrypt  = require('bcrypt');
 const saltRounds = 10;
+const multer= require('multer');
 
 //foreign keys
 
@@ -29,6 +30,7 @@ User.hasMany(Listing, {
 app.use(cors());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use('/images', express.static('uploads')); //making the uploads folder publicly accessible
 
 config.authenticate().then(function(){
     console.log('Database is connected');
@@ -40,8 +42,18 @@ app.listen(3000, function(){
     console.log('Server running on port 3000...');
 });
 
+//Configuring our upload folder and upload filename
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './uploads');
+      },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
 //REGISTER
-app.post('/register', function(req, res){
+app.post('/register',  multer({storage}).single('image'),  function(req, res){
 
     let plainPassword = req.body.password;
 
@@ -58,7 +70,8 @@ app.post('/register', function(req, res){
             phone: req.body.phone,
             interests: req.body.interests,
             username: req.body.username,
-            password: hash
+            password: hash,
+            image: req.file ? req.file.filename : null
         };
 
         User.create(user_data).then((result) => {
@@ -174,9 +187,20 @@ app.post('/games', function(req, res){
     })
 });
 
-app.post('/listings', function(req, res){
-    Listing.create(req.body).then(function(result){
-        res.redirect('/listings');
+app.post('/listings', multer({storage}).single('image'), function(req, res){
+
+    let user_data = {
+        user_id: req.body.user_id,
+        date_created: req.body.date_created,
+        type: req.body.type,
+        phone: req.body.phone,
+        game_id: req.body.game_id,
+        description: req.body.description,
+        title: req.body.title,
+        image: req.file ? req.file.filename : null
+    };
+    Listing.create(user_data).then(function(result){
+        res.status(200).send(result);
     }).catch(function(err){
         res.send(err);
     })

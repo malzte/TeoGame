@@ -18,7 +18,8 @@ export class NewlistingComponent implements OnInit {
       type: ['', [Validators.required]], 
       description: ['', [Validators.required]],
       phone: ['', [Validators.required]],
-      game_id: ['', [Validators.required]]
+      game_id: ['', [Validators.required]],
+      image: ['', [Validators.required]]
     });
   }
 
@@ -26,16 +27,30 @@ export class NewlistingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onFileChange(event:any) {  
+    const file = event.target.files[0];
+    this.newListing.patchValue({
+      image: file
+    }); 
+  } 
+
   newlisting(){
     let userData = this.userService.get_current_user();
     let formData = this.newListing.value;
     formData.user_id = userData.user_id;
-    this.userService.newlisting(formData).subscribe((result) => {
+    let f = new FormData();
+
+    //Transfer of all formgroup data into the FormData object;
+    for(let k in formData)
+    {
+      f.append(k, formData[k]);
+    }
+
+    this.userService.newlisting(f).subscribe((result) => {
       alert('Listing has been posted!');
     }, (err) => {
       alert('Listing failed to post');
       console.log(err);
     });
   }
-
 }

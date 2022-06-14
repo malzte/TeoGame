@@ -6,4 +6,5 @@ export interface Ilisting {
     phone:string;
     game_id:number;
     description:string;
+    image:string;
 }

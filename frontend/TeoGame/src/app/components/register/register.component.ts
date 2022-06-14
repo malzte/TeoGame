@@ -23,16 +23,30 @@ export class RegisterComponent implements OnInit {
       phone: ['', [Validators.required]],
       interests: ['', [Validators.required]],
       username: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
+      image: ['', [Validators.required]]
     });
   }
 
   ngOnInit(): void {
   }
 
+  onFileChange(event:any) {  
+    const file = event.target.files[0];
+    this.registerForm.patchValue({
+      image: file
+    });    
+}
   register(){
     let formData = this.registerForm.value;
-    this.service.register(formData).subscribe((result) => {
+    let f = new FormData();
+
+    //Transfer of all formgroup data into the FormData object;
+    for(let k in formData)
+    {
+      f.append(k, formData[k]);
+    }
+    this.service.register(f).subscribe((result) => {
       alert('Register successful!');
     }, (err) => {
       alert('Register failed!');
