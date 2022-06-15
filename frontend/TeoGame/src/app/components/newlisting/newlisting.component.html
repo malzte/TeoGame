@@ -24,32 +24,37 @@
       <ion-input placeholder="24" class="form-control" formControlName="user_id" type="text"></ion-input>
     </ion-item> -->
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Title:</ion-label>
       <ion-input class="form-control" formControlName="title" type="text"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
+    <!-- <ion-item lines="none">
       <ion-label position="stacked">Type:</ion-label>
       <ion-input type="text" class="form-control" formControlName="type"></ion-input>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label position="stacked">Type:</ion-label>
+      <ion-select class="form-control" formControlName="type"interface="popover">
+        <ion-select-option value="Rent">Rent</ion-select-option>
+        <ion-select-option value="Buy">Buy</ion-select-option>
+        <ion-select-option value="Sell">Sell</ion-select-option>
+        <ion-select-option value="Trade">Trade</ion-select-option>
+      </ion-select>
     </ion-item>
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Description:</ion-label>
       <ion-input type="text" class="form-control" formControlName="description"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
-      <ion-label position="stacked">Phone:</ion-label>
-      <ion-input type="text" class="form-control" formControlName="phone"></ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Game:</ion-label>
       <ion-input type="text" class="form-control" formControlName="game_id"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Image:</ion-label>
       <ion-input type="file" class="form-control" (change)="onFileChange($event)"></ion-input>
     </ion-item>

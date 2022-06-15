@@ -122,7 +122,8 @@ app.get('/listings/:user_id', function(req, res){
     let userId = req.params.user_id;
 
     let data = {
-        where: {user_id: userId}
+        where: {user_id: userId},
+        include: [Game,User]
     }
 
     Listing.findAll(data).then((result) => {
@@ -158,10 +159,16 @@ app.get('/games', function(req, res){
 });
 
 app.get('/listings', function(req, res){
-    let data ={
-        where: {},
-        include: Game
+    let data={
+        where:{},
+        include: [Game,User],
     }
+
+    // let data ={
+    //     where: {},
+    //     include: User
+    // }
+
     Listing.findAll(data).then(function(result){
         res.status(200).send(result);
     }).catch(function(err){

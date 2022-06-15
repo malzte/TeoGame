@@ -7,8 +7,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h1></h1>
-    <ul  *ngFor="let us of users">
+
+    <!-- <ul  *ngFor="let us of users">
         <li>First Name: {{users[0].first_name}}</li><br>
         <li>Last Name: {{users[0].last_name}}</li><br>
         <li>email: {{users[0].email}}</li><br>
@@ -18,8 +18,69 @@
         <li>City: {{users[0].city}}</li><br>
         <li>Street Address: {{users[0].street_address}}</li><br>
         <li>Profile Picture: <img src="http://localhost:3000/images/{{users[0].image}}"></li><br>
-    </ul>
+    </ul> -->
+  
+  
+  <form *ngFor="let us of users" [formGroup]="registerForm">
+  <img class="avatar" src="http://localhost:3000/images/{{users[0].image}}"><br>
+  <ion-item lines="">
+    <ion-label position="stacked">First Name:</ion-label>
+    <ion-input placeholder={{users[0].first_name}} readonly="true" class="form-control" formControlName="first_name" type="text" ></ion-input>
+  </ion-item>
 
+  <ion-item lines="">
+    <ion-label position="stacked">Last Name:</ion-label>
+    <ion-input placeholder={{users[0].last_name}} readonly="true" type="text" required ="true" class="form-control" formControlName="last_name" ></ion-input>
+  </ion-item>
 
+  <ion-item lines="">
+    <ion-label position="stacked">Email:</ion-label>
+    <ion-input placeholder={{users[0].email}} readonly="true" type="text" required ="true" class="form-control" formControlName="email"></ion-input>
+  </ion-item>
 
+  <ion-item lines="">
+    <ion-label position="stacked">Profile Picture:</ion-label>
+    <ion-input placeholder="{{users[0].image}}" readonly="true" type="file" class="form-control" (change)="onFileChange($event)"></ion-input>
+  </ion-item>
+
+  <ion-item lines="">
+    <ion-label position="stacked">Postal Code:</ion-label>
+    <ion-input placeholder={{users[0].postalcode}} readonly="true" type="text" class="form-control" formControlName="postalcode"></ion-input>
+  </ion-item>
+
+  <ion-item lines="">
+    <ion-label position="stacked">City:</ion-label>
+    <ion-input placeholder={{users[0].city}} readonly="true" type="text" class="form-control" formControlName="city"></ion-input>
+  </ion-item>
+
+  <ion-item lines="">
+    <ion-label position="stacked">Country:</ion-label>
+    <ion-input placeholder={{users[0].country}} readonly="true" type="text" class="form-control" formControlName="country"></ion-input>
+  </ion-item>
+
+  <ion-item lines="">
+    <ion-label position="stacked">Phone:</ion-label>
+    <ion-input placeholder={{users[0].phone}} readonly="true" type="text" class="form-control" formControlName="phone"></ion-input>
+  </ion-item>
+
+  <ion-item lines="">
+    <ion-label position="stacked">Interests:</ion-label>
+    <ion-input placeholder={{users[0].interests}} readonly="true" type="text" class="form-control" formControlName="interests"></ion-input>
+  </ion-item>
+
+  <ion-item lines="">
+    <ion-label position="stacked">Username:</ion-label>
+    <ion-input placeholder={{users[0].username}} readonly="true" type="text" class="form-control" formControlName="username"></ion-input>
+  </ion-item>
+
+  <ion-item lines="">
+    <ion-label position="stacked">Password:</ion-label>
+    <ion-input placeholder={{users[0].password}} readonly="true" type="password" class="form-control" formControlName="password"></ion-input>
+  </ion-item>
+
+  <div class="signupbutton">
+  <ion-button expand="block" type="submit" class="btn btn-primary" (click)="register()">Sign Up</ion-button>
+  </div>
+  </form>
+ 
 </ion-content>

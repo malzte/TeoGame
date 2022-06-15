@@ -17,11 +17,8 @@ const Listing = config.define('listings', {
         allowNull: true
     },
     type: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    phone: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("Rent","Buy","Trade","Sell"),
+        defaultValue:"Sell",
         allowNull: false
     },
     game_id: {
