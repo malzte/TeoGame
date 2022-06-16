@@ -17,3 +17,18 @@ component-button ion-list-header {
 //     justify-content: center;
 //     height: 100%;
 // }
+
+
+.mini {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit:cover;
+  // box-shadow: 5px 5px 5px grey;
+}
+
+.cardimg{
+  width:50vh;
+  height:200px;
+  object-fit:cover;
+}

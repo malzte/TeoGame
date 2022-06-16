@@ -7,4 +7,13 @@
     margin-left: auto;
     margin-right: auto;
     box-shadow: 5px 5px 5px grey;
+    object-fit:cover;
   }
+
+  ion-item{
+    ion-input{
+        --padding-start: 10px;
+        
+        //--color:black;
+    }
+}

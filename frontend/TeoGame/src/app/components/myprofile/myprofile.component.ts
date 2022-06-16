@@ -5,11 +5,11 @@ import { IUser } from 'src/app/interfaces/Iuser';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  selector: 'app-myprofile',
+  templateUrl: './myprofile.component.html',
+  styleUrls: ['./myprofile.component.scss'],
 })
-export class Tab3Page  implements OnInit{
+export class MyprofileComponent implements OnInit {
   registerForm;
 
   constructor(private listingService:ListingService, private service:UserService, private formBuilder: FormBuilder) {
@@ -32,6 +32,14 @@ export class Tab3Page  implements OnInit{
   users!:IUser[];
 
   ngOnInit
+
+  edit='true';
+
+  editprofile(){
+    this.edit='false';
+    console.log("CAN EDIT!")
+  }
+
   onFileChange(event:any) {  
     const file = event.target.files[0];
     this.registerForm.patchValue({
