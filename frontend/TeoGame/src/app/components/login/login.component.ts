@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm;
 
-  constructor(public alertController: AlertController, private service:UserService, private formBuilder: FormBuilder) {
+  constructor(public alertController: AlertController,public router: Router, private service:UserService, private formBuilder: FormBuilder) {
     this.loginForm = formBuilder.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -37,7 +38,9 @@ export class LoginComponent implements OnInit {
     let formData = this.loginForm.value;
     this.service.login(formData).subscribe((result) => {
       localStorage.setItem('currentUser', JSON.stringify(result)); //Storing the data of the currently logged in user on the browser
-      this.presentAlert('Login successful!');
+      this.router.navigate(['tabs/listings']);
+      // this.presentAlert('Login successful!');
+      
     }, (err) => {
       this.presentAlert('Incorrect email and/or password');
       console.log(err);

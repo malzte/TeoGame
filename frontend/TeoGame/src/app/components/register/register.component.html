@@ -19,59 +19,59 @@
 <ion-content class="ion-padding">
   <form [formGroup]="registerForm">
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">First Name:</ion-label>
       <ion-input class="form-control" formControlName="first_name" type="text"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Last Name:</ion-label>
       <ion-input type="text" required ="true" class="form-control" formControlName="last_name"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Email:</ion-label>
       <ion-input type="text" required ="true" class="form-control" formControlName="email"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
-      <ion-label position="stacked">Profile Picture:</ion-label>
-      <ion-input type="file" class="form-control" (change)="onFileChange($event)"></ion-input>
-    </ion-item>
-
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Postal Code:</ion-label>
       <ion-input type="text" class="form-control" formControlName="postalcode"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">City:</ion-label>
       <ion-input type="text" class="form-control" formControlName="city"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Country:</ion-label>
       <ion-input type="text" class="form-control" formControlName="country"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Phone:</ion-label>
       <ion-input type="text" class="form-control" formControlName="phone"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Interests:</ion-label>
-      <ion-input type="text" class="form-control" formControlName="interests"></ion-input>
+      <ion-textarea autoGrow="true" type="text" class="form-control" formControlName="interests"></ion-textarea>
     </ion-item>
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Username:</ion-label>
       <ion-input type="text" class="form-control" formControlName="username"></ion-input>
     </ion-item>
 
-    <ion-item lines="none">
+    <ion-item lines="">
       <ion-label position="stacked">Password:</ion-label>
       <ion-input type="password" class="form-control" formControlName="password"></ion-input>
+    </ion-item>
+    
+    <ion-item lines="">
+      <ion-label position="stacked">Profile Picture:</ion-label>
+      <ion-input type="file" class="form-control" (change)="onFileChange($event)"></ion-input>
     </ion-item>
 
     <div class="signupbutton">

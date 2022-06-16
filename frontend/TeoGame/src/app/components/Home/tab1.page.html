@@ -1,8 +1,9 @@
 <ion-header>
   <ion-toolbar> 
-    <ion-button *ngIf="isLoggedIn" size="medium" href="javascript:void(0)" (click)="logout()">Logout</ion-button>
-    <ion-button *ngIf="!isLoggedIn" [routerLink]="['/login']" size="medium">Login</ion-button>
-    <ion-button *ngIf="!isLoggedIn" [routerLink]="['/register']"size="medium">Sign Up</ion-button>
+    <ion-button *ngIf="isLoggedIn" slot="start" size="small" href="javascript:void(0)" (click)="logout()">Logout</ion-button>
+    <ion-button *ngIf="!isLoggedIn" slot="end" [routerLink]="['/login']" size="small">Login</ion-button>
+    <ion-button *ngIf="!isLoggedIn"  slot="end"  [routerLink]="['/register']"size="small">Sign Up</ion-button>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,18 +11,23 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
     <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
-    <h1>Listings</h1>
+    <h1></h1>
     
-    <ion-card *ngFor="let list of listings | filter:filterTerm" color="">
+    <ion-card *ngFor="let list of listings | filter:filterTerm" color="light">
       <img class="cardimg" src="http://localhost:3000/images/{{list.image}}">
       <ion-card-header>
-        <ion-card-title>{{list.title}}</ion-card-title>
+        <ion-card-title>{{list.title}}</ion-card-title><br>
         <ion-card-subtitle><img class="mini" src="http://localhost:3000/images/{{list.user.image}}"><span>  Posted by: {{list.user.username}}</span></ion-card-subtitle><br>
         <ion-card-subtitle>{{list.type}}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         {{list.description}}  
       </ion-card-content>
+      <ion-item lines="none" color="light">
+        <ion-icon  slot="start" name="heart"></ion-icon>
+        <ion-icon  slot="start" name="chatbubble"></ion-icon>
+        <ion-icon  slot="end" name="alert"></ion-icon>
+      </ion-item>
     </ion-card>
 
     <!-- <ion-card *ngFor="let list of listings | filter:filterTerm">

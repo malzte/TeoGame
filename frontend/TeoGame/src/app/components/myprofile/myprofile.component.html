@@ -8,6 +8,7 @@
           color="dark">
       </ion-back-button>
     </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,7 +19,7 @@
   <ion-item lines="">
     <ion-label position="stacked">First Name:</ion-label>
     <ion-input placeholder={{users[0].first_name}} readonly={{edit}} class="form-control" formControlName="first_name" type="text"></ion-input>
-    <button slot="end" ion-button icon-only (click)="editprofile()"><ion-icon name='create-outline'></ion-icon></button>
+    <button *ngIf="edit" slot="end" ion-button icon-only (click)="editprofile()"><ion-icon  name='lock-closed'></ion-icon></button>
   </ion-item>
 
   <ion-item lines="">

@@ -3,6 +3,7 @@ import { Router} from '@angular/router';
 import { ListingService } from 'src/app/services/listing.service';
 import { UserService } from 'src/app/services/user.service';
 import { Ilisting } from 'src/app/interfaces/ilisting';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -18,7 +19,7 @@ export class Tab1Page implements OnInit{
       
     }
 
-    public constructor(private router:Router,private listingService:ListingService, private userService:UserService){  }
+    public constructor(private alertController:AlertController, private router:Router,private listingService:ListingService, private userService:UserService){  }
 
     ionViewWillEnter(): void {
       this.listingService.getAllListings().subscribe((result) => {
@@ -32,9 +33,20 @@ export class Tab1Page implements OnInit{
       }
     }
 
+    async presentAlert(msg) {
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'Alert',
+        message: msg,
+        buttons: ['OK']
+      });
+
+      await alert.present();
+    }
+
     logout(){
       localStorage.removeItem("currentUser");
-      alert("user logged out");
+      this.presentAlert("User logged out!");
       this.router.navigate(['login']);
     }
 

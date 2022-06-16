@@ -13,7 +13,7 @@
 <ion-card *ngFor="let list of listings" color="light">
   <img src="http://localhost:3000/images/{{list.image}}">
   <ion-card-header>
-    <ion-card-title>{{list.title}}</ion-card-title>
+    <ion-card-title>{{list.title}}</ion-card-title><br>
     <ion-card-subtitle><img class="mini" src="http://localhost:3000/images/{{list.user.image}}"><span>  Posted by: {{list.user.username}}</span></ion-card-subtitle><br>
     <ion-card-subtitle>{{list.type}}</ion-card-subtitle>
   </ion-card-header>
