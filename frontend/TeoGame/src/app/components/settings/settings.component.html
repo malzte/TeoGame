@@ -8,19 +8,37 @@
 
 <ion-content>
   <ion-list>
+    <ion-item lines="full">
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label>
+        Dark Mode
+      </ion-label>
+      <ion-toggle (ionChange)='toggleTheme($event)' slot="end"></ion-toggle>
+    </ion-item>
+
     <ion-item href="./myprofile">
       <ion-icon  slot="start" name="person-circle"></ion-icon>
       <ion-label>My Profile</ion-label>
     </ion-item>
 
-    <ion-item lines="full">
+    <ion-item href="./myprofile" lines="full">
       <ion-icon slot="start" name="notifications"></ion-icon>
       <ion-label>Notifications</ion-label>
     </ion-item>
 
-    <ion-item lines="full">
+    <ion-item href="./myprofile" lines="full">
       <ion-icon slot="start" name="color-palette"></ion-icon>
       <ion-label>Theme</ion-label>
+    </ion-item>
+
+    <ion-item href="./myprofile" lines="full">
+      <ion-icon slot="start" name="heart"></ion-icon>
+      <ion-label>Saved Listings</ion-label>
+    </ion-item>
+
+    <ion-item href="./myprofile" lines="full">
+      <ion-icon slot="start" name="chatbox-ellipses"></ion-icon>
+      <ion-label>Messages</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
