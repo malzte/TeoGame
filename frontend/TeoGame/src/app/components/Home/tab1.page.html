@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar> 
+  <ion-toolbar class="new-background-color"> 
     <ion-button *ngIf="isLoggedIn" slot="start" size="small" href="javascript:void(0)" (click)="logout()">Logout</ion-button>
     <ion-button *ngIf="!isLoggedIn" slot="end" [routerLink]="['/login']" size="small">Login</ion-button>
     <ion-button *ngIf="!isLoggedIn"  slot="end"  [routerLink]="['/register']"size="small">Sign Up</ion-button>
@@ -9,7 +9,8 @@
 
 
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content [fullscreen]="true" class="">
+  <img style="padding:0; margin:0" src="http://localhost:3000/images/logoteogame-1.jpg">
     <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
     <h1></h1>
     

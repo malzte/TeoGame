@@ -10,10 +10,14 @@
     object-fit:cover;
   }
 
-  ion-item{
+ion-item{
     ion-input{
         --padding-start: 10px;
         
         //--color:black;
     }
+}
+
+.iconcolor{
+    color: white !important;
 }

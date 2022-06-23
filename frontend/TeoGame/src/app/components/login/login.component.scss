@@ -20,3 +20,15 @@
      }
  }
  
+ .avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    // border: solid 2px black;
+    display:block;
+    margin-top:20px;
+    margin-left: auto;
+    margin-right: auto;
+    // box-shadow: 5px 5px 5px grey;
+    object-fit:cover;
+  }

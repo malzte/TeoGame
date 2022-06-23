@@ -69,19 +69,13 @@
     <ion-input placeholder={{users[0].username}} readonly="true" type="text" class="form-control" formControlName="username"></ion-input>
     <button slot="end" ion-button icon-only (click)="editprofile()"><ion-icon name='create-outline'></ion-icon></button>
   </ion-item>
-
-  <ion-item lines="">
-    <ion-label position="stacked">Password:</ion-label>
-    <ion-input placeholder={{users[0].password}} readonly="true" type="password" class="form-control" formControlName="password"></ion-input>
-  </ion-item>
-
   <ion-item lines="">
     <ion-label position="stacked">Profile Picture:</ion-label>
     <ion-input placeholder="{{users[0].image}}" readonly="true" type="file" class="form-control" (change)="onFileChange($event)"></ion-input>
   </ion-item>
 
   <div class="signupbutton">
-  <ion-button expand="block" type="submit" class="btn btn-primary" (click)="register()">Sign Up</ion-button>
+  <ion-button expand="block" type="submit" class="btn btn-primary" (click)="register()">Save Changes</ion-button>
   </div>
   </form>
  

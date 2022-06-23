@@ -1,14 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Listings
+      My Listings
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-
-<h1>My Listings</h1>
 
 <ion-card *ngFor="let list of listings" color="light">
   <img src="http://localhost:3000/images/{{list.image}}">
