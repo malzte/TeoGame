@@ -19,55 +19,49 @@
   <ion-item lines="">
     <ion-label position="stacked">First Name:</ion-label>
     <ion-input placeholder={{users[0].first_name}} readonly={{edit}} class="form-control" formControlName="first_name" type="text"></ion-input>
-    <button *ngIf="edit" slot="end" ion-button icon-only (click)="editprofile()"><ion-icon  name='lock-closed'></ion-icon></button>
+    <button *ngIf="edit=='true'" slot="end" ion-button icon-only (click)="editprofile()"><ion-icon size="large"  name='lock-closed'></ion-icon></button>
+    <button *ngIf="edit=='false'" slot="end" ion-button icon-only (click)="editprofile()"><ion-icon size="large" name='lock-open-outline'></ion-icon></button>
   </ion-item>
 
   <ion-item lines="">
     <ion-label position="stacked">Last Name:</ion-label>
     <ion-input placeholder={{users[0].last_name}} readonly={{edit}} type="text" required ="true" class="form-control" formControlName="last_name" ></ion-input>
-    <button slot="end" ion-button icon-only (click)="editprofile()"><ion-icon name='create-outline'></ion-icon></button>
   </ion-item>
 
   <ion-item lines="">
     <ion-label position="stacked">Email:</ion-label>
     <ion-input placeholder={{users[0].email}} readonly="true" type="text" required ="true" class="form-control" formControlName="email"></ion-input>
-    <button slot="end" ion-button icon-only (click)="editprofile()"><ion-icon name='create-outline'></ion-icon></button>
   </ion-item>
 
   <ion-item lines="">
     <ion-label position="stacked">Postal Code:</ion-label>
     <ion-input placeholder={{users[0].postalcode}} readonly="true" type="text" class="form-control" formControlName="postalcode"></ion-input>
-    <button slot="end" ion-button icon-only (click)="editprofile()"><ion-icon name='create-outline'></ion-icon></button>
   </ion-item>
 
   <ion-item lines="">
     <ion-label position="stacked">City:</ion-label>
     <ion-input placeholder={{users[0].city}} readonly="true" type="text" class="form-control" formControlName="city"></ion-input>
-    <button slot="end" ion-button icon-only (click)="editprofile()"><ion-icon name='create-outline'></ion-icon></button>
   </ion-item>
 
   <ion-item lines="">
     <ion-label position="stacked">Country:</ion-label>
     <ion-input placeholder={{users[0].country}} readonly="true" type="text" class="form-control" formControlName="country"></ion-input>
-    <button slot="end" ion-button icon-only (click)="editprofile()"><ion-icon name='create-outline'></ion-icon></button>
   </ion-item>
 
   <ion-item lines="">
     <ion-label position="stacked">Phone:</ion-label>
     <ion-input placeholder={{users[0].phone}} readonly="true" type="text" class="form-control" formControlName="phone"></ion-input>
-    <button slot="end" ion-button icon-only (click)="editprofile()"><ion-icon name='create-outline'></ion-icon></button>
   </ion-item>
 
   <ion-item lines="">
     <ion-label position="stacked">Interests:</ion-label>
     <ion-textarea autoGrow="true" placeholder={{users[0].interests}} readonly="true" type="text" class="form-control" formControlName="interests"></ion-textarea>
-    <button slot="end" ion-button icon-only (click)="editprofile()"><ion-icon name='create-outline'></ion-icon></button>
+    
   </ion-item>
 
   <ion-item lines="">
     <ion-label position="stacked">Username:</ion-label>
     <ion-input placeholder={{users[0].username}} readonly="true" type="text" class="form-control" formControlName="username"></ion-input>
-    <button slot="end" ion-button icon-only (click)="editprofile()"><ion-icon name='create-outline'></ion-icon></button>
   </ion-item>
   <ion-item lines="">
     <ion-label position="stacked">Profile Picture:</ion-label>

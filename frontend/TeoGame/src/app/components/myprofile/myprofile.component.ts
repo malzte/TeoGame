@@ -33,11 +33,16 @@ export class MyprofileComponent implements OnInit {
 
   ngOnInit
 
-  edit='true';
+  edit='false';
 
   editprofile(){
-    this.edit='false';
+    if(this.edit=='true'){this.edit='false';}
+    else{
+      this.edit='true'
+    }
+    
     console.log("CAN EDIT!")
+    console.log(this.edit)
   }
 
   onFileChange(event:any) {  

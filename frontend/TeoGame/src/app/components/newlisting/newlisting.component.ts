@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-newlisting',
   templateUrl: './newlisting.component.html',
@@ -11,7 +11,7 @@ export class NewlistingComponent implements OnInit {
 
   newListing;
 
-  constructor(private formBuilder: FormBuilder,private userService:UserService) {
+  constructor(private formBuilder: FormBuilder,private userService:UserService, private alertController:AlertController) {
     this.newListing = formBuilder.group({
       user_id: ['', [Validators.required]],
       title: ['', [Validators.required]],
@@ -34,6 +34,17 @@ export class NewlistingComponent implements OnInit {
     }); 
   } 
 
+  async presentAlert(msg) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      message: msg,
+      buttons: ['OK']
+    });
+  
+    await alert.present();
+  }
+
   newlisting(){
     let userData = this.userService.get_current_user();
     let formData = this.newListing.value;
@@ -47,9 +58,9 @@ export class NewlistingComponent implements OnInit {
     }
 
     this.userService.newlisting(f).subscribe((result) => {
-      alert('Listing has been posted!');
+      this.presentAlert('Listing has been posted!');
     }, (err) => {
-      alert('Listing failed to post');
+      this.presentAlert('Listing failed to post');
       console.log(err);
     });
   }

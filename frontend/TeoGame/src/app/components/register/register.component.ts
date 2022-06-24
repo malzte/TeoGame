@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm;
 
-  constructor(private service:UserService, private formBuilder: FormBuilder) {
+  constructor(private service:UserService, private formBuilder: FormBuilder, private alertController:AlertController) {
     this.registerForm = formBuilder.group({
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
@@ -37,6 +38,18 @@ export class RegisterComponent implements OnInit {
       image: file
     });    
 }
+
+async presentAlert(msg) {
+  const alert = await this.alertController.create({
+    cssClass: 'my-custom-class',
+    header: 'Alert',
+    message: msg,
+    buttons: ['OK']
+  });
+
+  await alert.present();
+}
+
   register(){
     let formData = this.registerForm.value;
     let f = new FormData();
@@ -47,9 +60,9 @@ export class RegisterComponent implements OnInit {
       f.append(k, formData[k]);
     }
     this.service.register(f).subscribe((result) => {
-      alert('Register successful!');
+      this.presentAlert('Register successful!');
     }, (err) => {
-      alert('Register failed!');
+      this.presentAlert('Register failed!');
       console.log(err);
     });
   }
